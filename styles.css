@@ -1,0 +1,26 @@
+     h1, h2, h5 {
+         color: yellowgreen
+        }
+        img { 
+            width: 50%
+         }
+      .headers {
+        color: green;
+        font-size: 125%;
+      }
+      .bold {
+          font-weight: 700
+        }
+    
+      .col-3 {
+          float: left;
+          width: 20%;
+          height:100% ;
+          background-color: rgb(167, 245, 41);
+        
+      }
+      .col-9 {
+          float: right;
+          width: 80%;
+
+      }
