@@ -120,6 +120,8 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 # STATIC_ROOT = ...
+MEDIA_ROOT = "media"
+MEDIA_URL = "/media/"
 import django_heroku
 
 django_heroku.settings(locals())

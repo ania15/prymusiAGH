@@ -6,16 +6,19 @@ zmienna books: {{ books }}
 
 <h1>Lista książek</h1>
 
+<div class="row">
 {% for book in books %}
-
-<div class="card" style="width: 18rem;">
-    <div class="card-body">
-        <h5 class="card-title">{{ book.title }}</h5>
-        <p class="card-text">{{ book.short_description }}</p>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
+<div class="col-sm-12 col-md-6 col-lg-4 col-xl-3">
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">{{ book.title }}</h5>
+            <p class="card-text">{{ book.short_description }}</p>
+            <a href="{% url 'book_details' book.id %" class="btn btn-primary">
+                Przejdź do opisu
+            </a>
+        </div>
     </div>
 </div>
-
 {% endfor %}
-
+</div>
 {% endblock content %}

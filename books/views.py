@@ -15,3 +15,7 @@ def books_list(request):
 def hello_world(request):
     our_context = { "time": datetime.now()}
     return render(request, template_name="index.html", context=our_context)
+
+def book_details(request, book_id):
+    context = {"book": Book.objects.get(id=book_id)}
+    return render(request, "book_details.html", context)

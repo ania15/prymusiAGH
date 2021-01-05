@@ -7,6 +7,7 @@ class Book(models.Model):
     published_at = models.DateTimeField()
     # dodane
     created_at = models.DateTimeField(null=True)
+    cover = models.ImageField(null=True, blank=True)
 
     def __str__(self):
         return "Książka: " + self.title

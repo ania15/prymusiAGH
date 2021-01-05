@@ -18,10 +18,13 @@ from django.urls import path
 from books.views import books_list
 from books.views import index
 from books.views import hello_world
+from books.views import book_details
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('books/', books_list, name="book_list"),
     path('', index, name="index"),
-    path('hello/', hello_world)
-]
+    path('hello/', hello_world),
+    path('books/<int:book_id>', book_details, name="book_details"),
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
