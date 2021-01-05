@@ -19,7 +19,8 @@ from books.views import books_list
 from books.views import index
 from books.views import hello_world
 from books.views import book_details
-
+from django.conf.urls.static import static
+from django.conf import settings
 
 urlpatterns = [
     path('admin/', admin.site.urls),
