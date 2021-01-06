@@ -2,7 +2,6 @@
 
 {% block content %}
 
-zmienna books: {{ books }}
 
 <h1><i class="fas fa-book"></i>Lista książek</h1>
 
@@ -16,7 +15,7 @@ zmienna books: {{ books }}
         <div class="card-body">
             <h5 class="card-title">{{ book.title }}</h5>
             <p class="card-text">{{ book.short_description }}</p>
-            <a href="{% url 'book_details' book.id %" class="btn btn-primary">
+            <a href="{% url 'book_details' book.id %}" class="btn btn-primary">
                 Przejdź do opisu
             </a>
         </div>
