@@ -21,11 +21,16 @@ from books.views import hello_world
 from books.views import book_details
 from django.conf.urls.static import static
 from django.conf import settings
+from django.urls import include
+from books.views import user_signup
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('accounts/', include('django.contrib.auth.urls')),
+    path('accounts/registration/', user_signup),
     path('books/', books_list, name="book_list"),
     path('', index, name="index"),
     path('hello/', hello_world),
     path('books/<int:book_id>', book_details, name="book_details"),
+
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

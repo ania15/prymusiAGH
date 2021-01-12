@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block content %}
+
+{% if form.errors %}
+<div class="alert alert-danger" role="alert">
+Nieprawidłowe hasło lub nazwa użytkownika.
+</div>
+{% endif %}
+{% if next %}
+{% if user.is_authenticated %}
+<p>Your account doesn't have access to this page. To proceed,
+please login with an account that has access.</p>
+{% else %}
+<p>Please login to see this page.</p>
+{% endif %}
+{% endif %}
+
+
+
+<form method="post" action="{% url 'login' %}">
+{% csrf_token %}
+<table>
+<tr>
+<label for="id_username" class="form-label">Login</label>
+<input type="text" class="form-control" id="id_username" name="username">
+</tr>
+<tr>
+<label for="id_password" class="form-label">Hasło</label>
+<input type="password" class="form-control" id="id_password" name = "password">
+</tr>
+</table>
+<input type="submit" value="login" class="btn btn-success">
+<input type="hidden" name="next" value="{{ next }}">
+</form>
+
+{# Assumes you setup the password_reset view in your URLconf #}<p>
+    <a href="{% url 'password_reset' %}">Nie pamiętasz hasła?</a></p>
+{% endblock %}

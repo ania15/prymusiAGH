@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<form method ="POST">
+{% csrf_token %}
+
+{{ form }}
+
+<button type="sumbit" class= "btn btn-primary">Zarejestruj się</button>
+
+</form>
+
+
+{% endblock content %}

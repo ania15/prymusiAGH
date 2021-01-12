@@ -19,3 +19,24 @@ def hello_world(request):
 def book_details(request, book_id):
     context = {"book": Book.objects.get(id=book_id)}
     return render(request, "book_details.html", context)
+
+from django.contrib.auth.forms import UserCreationForm
+
+
+def user_signup(request):
+    
+    if request.method == "POST":
+        # stworz nowego uzytkownika
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            #formularz poprawny, mozna zapisac uzytkownika
+            form.save()
+            #przekierowanie na stronę z podziękowaniem
+            return render(request,"registration/signup_complete.html")
+        
+    else:
+        #pokaz pusty formularz rejestracji
+        form = UserCreationForm()
+       
+    context = {"form": form}
+    return render(request, "registration/signup_form.html", context)
