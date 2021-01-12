@@ -22,7 +22,6 @@ def book_details(request, book_id):
 
 from django.contrib.auth.forms import UserCreationForm
 
-
 def user_signup(request):
     
     if request.method == "POST":
@@ -40,3 +39,9 @@ def user_signup(request):
        
     context = {"form": form}
     return render(request, "registration/signup_form.html", context)
+
+
+from django.contrib.auth.models import User
+def profile_view(request, user):
+    context = {"username": User.objects.get(user=user)}
+    return render (request, 'profile_view.html', context)

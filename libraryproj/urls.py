@@ -23,11 +23,13 @@ from django.conf.urls.static import static
 from django.conf import settings
 from django.urls import include
 from books.views import user_signup
+from books.views import profile_view
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('accounts/', include('django.contrib.auth.urls')),
-    path('accounts/registration/', user_signup),
+    path('accounts/registration/', user_signup, name='user_signup'),
+    path('accounts/profile/', profile_view, name='user_profile'),
     path('books/', books_list, name="book_list"),
     path('', index, name="index"),
     path('hello/', hello_world),
