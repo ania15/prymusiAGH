@@ -42,6 +42,6 @@ def user_signup(request):
 
 
 from django.contrib.auth.models import User
-def profile_view(request, user):
-    context = {"username": User.objects.get(user=user)}
+def profile_view(request):
+    context = {"username": request.user}
     return render (request, 'profile_view.html', context)
