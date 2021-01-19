@@ -8,4 +8,15 @@
 <p>
     {{ book.short_descripction }}
 </p>
+<h5>
+Autorzy:
+</h5>
+<ul>
+    {% for auth in book.author.all %}
+        <li>{{ auth }}</li>
+    {% endfor %}
+</ul>
+<p>
+    {{ book.author.all }}
+</p>
 {% endblock content %}

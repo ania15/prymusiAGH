@@ -1,7 +1,8 @@
 from django.http import HttpResponse
 from django.shortcuts import render
 from datetime import datetime
-from books.models import Book
+from books.models import Book, Author
+from django.views.generic import ListView, DetailView
 # Create your views here.
 
 def index(request):
@@ -11,6 +12,23 @@ def index(request):
 def books_list(request):
     context = {"books": Book.objects.all()}
     return render(request, "books_list.html", context)
+
+class BookList(ListView):
+    #wyciagamy z bazy danych obiekty modelu Book
+    model = Book
+    # szujamy szablonu nazwanego jak poniezj
+    template_name = "books_list.html"
+    # lista do HTML nedzie pod zmienna books
+    context_object_name = "books"
+
+class AuthorList(ListView):
+    model = Author
+   
+
+class AuthorDetail(DetailView):
+    model = Author
+    pk_url_kwarg = "author_id"
+
 
 def hello_world(request):
     our_context = { "time": datetime.now()}
