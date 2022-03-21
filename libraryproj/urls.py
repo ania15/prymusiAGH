@@ -30,11 +30,11 @@ urlpatterns = [
     path('accounts/', include('django.contrib.auth.urls')),
     path('accounts/registration/', user_signup, name='user_signup'),
     path('accounts/profile/', profile_view, name='user_profile'),
-    path('books/', Booklist.as_view(), name="book_list"),
+    path('books/', BookList.as_view(), name="book_list"),
     path('', index, name="index"),
     path('hello/', hello_world),
-    path('authors/', AuthorList.as_view(), name="author_list")
-    path('authors/<int:author_id>', AuthorDetail.as_view(), name="author_details")
+    path('authors/', AuthorList.as_view(), name="author_list"),
+    path('authors/<int:author_id>', AuthorDetail.as_view(), name="author_details"),
     path('books/<int:book_id>', book_details, name="book_details"),
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
